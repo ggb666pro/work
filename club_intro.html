@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活动详情 · 萨克斯社 2026 春季招新</title>
+<style>
+  :root{
+    --bg:#100d0a;--bg2:#17130e;--gold:#d8a94f;--gold2:#f2d18d;
+    --line:rgba(216,169,79,.20);--text:#ece4d8;--dim:#9d9284;
+    --serif:Georgia,"Times New Roman","Songti SC","SimSun",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--text);font-family:var(--sans);
+    line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* ---------- 顶部：返回按钮 ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:99;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 40px;
+    background:rgba(12,10,8,.9);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(216,169,79,.14);
+  }
+  .back-home{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:9px 22px;border:1px solid rgba(216,169,79,.42);border-radius:999px;
+    font-size:13.5px;letter-spacing:.12em;color:var(--gold2);
+    transition:.35s;
+  }
+  .back-home:hover{
+    background:rgba(216,169,79,.12);border-color:var(--gold);
+    transform:translateX(-3px);
+  }
+  .back-home i{font-style:normal;transition:.35s;}
+  .back-home:hover i{transform:translateX(-4px);}
+  .topbar .t{font-family:var(--serif);font-size:15px;letter-spacing:.28em;color:var(--dim);}
+
+  /* ---------- 头图 ---------- */
+  .banner{
+    position:relative;height:52vh;min-height:340px;overflow:hidden;
+  }
+  .banner img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.72) saturate(.95);}
+  .banner::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(16,13,10,.55),rgba(16,13,10,.35) 40%,var(--bg) 98%);
+  }
+  .banner .btxt{
+    position:absolute;left:0;right:0;bottom:52px;z-index:2;
+    text-align:center;padding:0 24px;
+  }
+  .banner .btxt .k{
+    font-size:11.5px;letter-spacing:.42em;color:var(--gold);margin-bottom:16px;
+    text-align:center;text-indent:0;
+  }
+  .banner .btxt h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(30px,5.2vw,54px);letter-spacing:.14em;
+    color:#f7efe1;text-indent:.14em;
+  }
+  .banner .btxt p{
+    margin-top:14px;font-size:13.5px;color:#b8ae9d;letter-spacing:.16em;
+    text-align:center;text-indent:0;
+  }
+
+  /* ---------- 正文 ---------- */
+  main{max-width:840px;margin:0 auto;padding:64px 24px 90px;}
+  .lead{
+    font-family:var(--serif);font-size:18.5px;line-height:2.15;color:#ded3c0;
+    padding-left:24px;border-left:2px solid var(--gold);margin-bottom:52px;
+    letter-spacing:.04em;text-indent:0;text-align:left;
+  }
+  h2{
+    font-family:var(--serif);font-size:23px;font-weight:400;color:var(--gold2);
+    letter-spacing:.12em;margin:52px 0 22px;
+    display:flex;align-items:center;gap:14px;
+  }
+  h2::before{content:"";width:20px;height:1px;background:var(--gold);flex:none;}
+  p{color:#c4bbab;font-size:15.4px;text-align:justify;margin-bottom:18px;text-indent:2em;}
+  p.noind{text-indent:0;}
+  b{color:var(--gold2);font-weight:500;}
+
+  /* 活动清单 */
+  .acts{list-style:none;margin:26px 0 10px;display:grid;gap:14px;}
+  .acts li{
+    display:flex;gap:18px;align-items:flex-start;
+    padding:20px 22px;border:1px solid var(--line);border-radius:13px;
+    background:linear-gradient(160deg,rgba(216,169,79,.055),rgba(255,255,255,.01));
+    transition:.4s;
+  }
+  .acts li:hover{transform:translateY(-3px);border-color:rgba(216,169,79,.45);}
+  .acts .n{
+    font-family:var(--serif);font-size:26px;color:rgba(216,169,79,.45);
+    line-height:1;flex:none;width:42px;
+  }
+  .acts .c strong{
+    display:block;font-size:16px;color:#f0e6d4;font-weight:500;
+    letter-spacing:.06em;margin-bottom:6px;
+  }
+  .acts .c span{font-size:13.6px;color:var(--dim);line-height:1.85;}
+
+  /* 信息卡 */
+  .info{
+    margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .info div{
+    padding:20px 16px;text-align:center;border:1px solid var(--line);border-radius:12px;
+    background:rgba(255,255,255,.014);
+  }
+  .info div small{display:block;font-size:11.5px;color:var(--dim);letter-spacing:.16em;margin-bottom:8px;}
+  .info div b{font-family:var(--serif);font-size:16px;letter-spacing:.06em;}
+
+  /* 底部返回 */
+  .foot-cta{
+    margin-top:70px;padding-top:44px;text-align:center;
+    border-top:1px solid rgba(216,169,79,.12);
+  }
+  .foot-cta p{text-align:center;text-indent:0;color:var(--dim);font-size:13.5px;margin-bottom:26px;}
+  .btn-back{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 42px;border-radius:999px;
+    background:linear-gradient(135deg,#e8c47a,#c99534);color:#22170a;
+    font-size:14.5px;letter-spacing:.18em;font-weight:600;
+    box-shadow:0 12px 32px rgba(200,150,50,.26);transition:.35s;
+  }
+  .btn-back:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(200,150,50,.42);}
+  .btn-back i{font-style:normal;transition:.35s;}
+  .btn-back:hover i{transform:translateX(-4px);}
+
+  footer{
+    padding:44px 24px;text-align:center;border-top:1px solid rgba(216,169,79,.1);
+    background:#0a0806;font-size:12.5px;color:#5c544a;letter-spacing:.1em;line-height:2;
+  }
+
+  @media (max-width:680px){
+    .topbar{padding:12px 16px;}
+    .topbar .t{display:none;}
+    main{padding:44px 18px 70px;}
+    .info{grid-template-columns:1fr;}
+    .banner{height:38vh;min-height:260px;}
+    .lead{font-size:16px;padding-left:16px;}
+    h2{font-size:20px;margin:42px 0 18px;}
+    .acts li{padding:16px;gap:12px;}
+    .acts .n{width:32px;font-size:21px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部返回栏 -->
+<div class="topbar">
+  <a class="back-home" href="su-0224-work2.html"><i>←</i> 返回萨克斯社招新网页</a>
+  <span class="t">活动详情</span>
+</div>
+
+<!-- 头图 -->
+<div class="banner">
+  <img src="sax-recruit.jpg" alt="萨克斯社招新现场">
+  <div class="btxt">
+    <p class="k">SAXOPHONE CLUB · ACTIVITIES</p>
+    <h1>我们一年都做些什么</h1>
+    <p>2026 年春季学期 · 活动介绍</p>
+  </div>
+</div>
+
+<main>
+  <p class="lead">
+    萨克斯社的活动看起来很多，但说到底只有两件事：<br>
+    让不会吹的人学会吹，让会吹的人有地方吹给别人听。
+  </p>
+
+  <h2>一、每周的固定排练</h2>
+  <p>社团实行"<b>两次合排 + 一次一对一</b>"的周节奏。周四晚 19:00 是新人组的分声部训练，按高音、中音、次中音、上低音四个声部拆开练，重点解决音准、节奏和声部之间的平衡；周日晚 19:30 是全社团大合排，四个声部合到一起，练整首曲子。每位新社员还会被分配给一位老社员，每周自约时间做一次一对一辅导，内容从口型、气息、长音到具体的乐句处理。</p>
+  <p>排练不强制全勤，但有一条硬规定：<b>演出前四周的合排不得缺席超过一次</b>。这不是为了严格，而是因为四重奏里少一个人，另外三个人的声部就全乱了。</p>
+
+  <h2>二、面向全校的公开课</h2>
+  <p>每学期开学初，社团会办两场萨克斯基础教学公开课，<b>对全校开放，不需要任何报名</b>。上半场讲口型、气息和长音——这三样是所有管乐的地基，也是大部分人自学时最容易走偏的地方；下半场讲指法、吐音，并且带大家完整吹下人生第一首曲子。现场会准备 12 支社团公用乐器免费借用，先到先得。</p>
+  <p>很多人是在公开课上第一次真正把萨克斯吹响的。那一刻的表情，我们看了十几年还是觉得很有意思。</p>
+
+  <h2>三、走出去的演出</h2>
+  <ul class="acts">
+    <li>
+      <span class="n">01</span>
+      <span class="c">
+        <strong>校园草坪快闪</strong>
+        <span>每学期一次，不预告时间地点，在图书馆前草坪或食堂门口突然开始，吹完三首就走。我们喜欢看路人从"这是什么声音"到"停下来听完"的那个过程。</span>
+      </span>
+    </li>
+    <li>
+      <span class="n">02</span>
+      <span class="c">
+        <strong>"金色黄昏" 春季专场音乐会</strong>
+        <span>社团一年中最重要的演出，在大学生活动中心音乐厅举行，时长约两小时。曲目以爵士标准曲和流行改编为主，也会有社员自己写的原创。全部由社员自己完成编曲、排练、灯光和宣传。</span>
+      </span>
+    </li>
+    <li>
+      <span class="n">03</span>
+      <span class="c">
+        <strong>冬季校园音乐节</strong>
+        <span>每年 12 月，与其他器乐、声乐社团同台。这是社团一年里编制最完整的一次亮相，四个声部加节奏组全部上场。</span>
+      </span>
+    </li>
+    <li>
+      <span class="n">04</span>
+      <span class="c">
+        <strong>校外交流与敬老院公益演出</strong>
+        <span>每学年两到三次。我们去过社区活动中心、养老院和隔壁中学。这些场合的听众不会鼓掌到很热烈，但他们会在你吹完之后，认真地说一句"好听"。</span>
+      </span>
+    </li>
+  </ul>
+
+  <h2>四、你入社之后会经历什么</h2>
+  <p><b>第一个月</b>：只练呼吸和长音，不碰曲子。这一个月最枯燥，也最容易放弃，所以我们安排了一对一陪练。<b>第二到第三个月</b>：开始练音阶和简单旋律，同时进入分声部训练，跟着大家一起走。<b>第四到第六个月</b>：能够完整吹下一到两首曲子，开始参与全社团大合排。<b>一年之后</b>：如果你愿意，你会站上专场的舞台，吹属于你的那一段。</p>
+  <p class="noind" style="text-align:center;color:var(--dim);font-size:13.8px;margin-top:26px;">
+    —— 这条路径，过去三年里有一百二十多人走过。
+  </p>
+
+  <div class="info">
+    <div><small>排练地点</small><b>艺术楼 A301</b></div>
+    <div><small>固定排练</small><b>周四 19:00 / 周日 19:30</b></div>
+    <div><small>乐器借用</small><b>免费 · 限 12 支</b></div>
+  </div>
+
+  <div class="foot-cta">
+    <p>想加入我们？回到招新主页填写报名表即可。</p>
+    <a class="btn-back" href="su-0224-work2.html"><i>←</i> 返回萨克斯社招新网页</a>
+  </div>
+</main>
+
+<footer>
+  萨克斯社 · 把黄昏吹成金色 · 2013 — 2026<br>
+  本页面为课程作业作品
+</footer>
+
+</body>
+</html>
