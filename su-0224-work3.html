@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    /* 页面整体：柔和粉色渐变背景 + 居中布局 */
+    body {
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+        background: linear-gradient(135deg, #fce9f0, #fff8fb);
+        color: #4a2f38;
+        text-align: center;
+    }
+
+    /* 主内容卡片：除 background-color 外均按作业要求原样保留 */
+    .page {
+        display: inline-block;
+        background-color: #FFE6EE;
+        box-shadow: 0 0 30px rgba(80, 58, 35, 0.25);
+        text-align: left;
+        max-width: 720px;
+    }
+
+    /* 并集选择器：统一各级标题的颜色与字间距 */
+    h1, h2, h3, h4, h5, h6 {
+        color: #8c4a5e;
+        letter-spacing: 1px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    /* ID 选择器：只作用于 <p id="intro">，不影响 <h2 id="intro"> */
+    p#intro {
+        font-size: 140%;
+        font-weight: bold;
+        color: #c2456e;
+    }
+
+    /* 活动介绍段落：拉大行高，读起来更松弛 */
+    .intro-text {
+        line-height: 1.9;
+        letter-spacing: 0.5px;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    /* 表格基础样式：用背景色区分层次 */
+    table {
+        width: 100%;
+        background-color: #fff2f7;
+        font-size: 90%;
+    }
+
+    th {
+        background-color: #f7d3e0;
+        font-weight: bold;
+        text-align: left;
+        line-height: 2.2;
+    }
+
+    td {
+        line-height: 2.0;
+    }
+
+    /* 斑马纹与鼠标悬停 */
+    table tr:nth-child(even) {
+        background-color: #fdeaf2;
+    }
+
+    table tr:hover {
+        background-color: #f9dbe7;
+    }
+
+    /* 后代选择器：只放大 div 里 table 里的链接，不影响页面其他链接 */
+    div table a {
+        font-weight: bold;
+        font-size: 110%;
+        color: #a83a62;
+    }
+
+    /* 链接伪类 */
+    a:link {
+        color: #c2567a;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #9b7a86;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #e0699a;
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: #6b4a9e;
+        text-decoration: underline;
+    }
+
+    /* 带类名的链接：主链接与次链接 */
+    a.red:link {
+        color: #d94f7a;
+    }
+
+    a.red:active {
+        color: #6b4a9e;
+    }
+
+    a.blue:link {
+        color: #6b8fb8;
+    }
+
+    a.blue:active {
+        color: #a53aa4;
+    }
+
+    /* 伪元素：段落首字放大 */
+    p::first-letter {
+        font-size: 180%;
+        color: #c2456e;
+    }
+
+    /* 伪元素：每个区块的第一行略微强调 */
+    div::first-line {
+        color: #a83a62;
+        font-weight: bold;
+    }
+
+    /* 底部公告区文字略小，层次更清楚 */
+    .notice {
+        font-size: 90%;
+        line-height: 1.8;
+    }
+
+    /* 区块内留白，避免文字贴边 */
+    .sec {
+        padding: 0 30px;
+    }
+
+    /* 分隔线：用渐变模拟，不使用 border */
+    .divider {
+        height: 1px;
+        background: linear-gradient(to right, rgba(140, 74, 94, 0), rgba(140, 74, 94, 0.5), rgba(140, 74, 94, 0));
+    }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="sec">
+        <h1 class="center">轻音乐阅读夜 · Soft Music Reading</h1>
+    </div>
+
+    <div class="divider"></div><br>
+
+    <div class="sec">
+        <h2 id="intro" class="center">本周主题：把夜晚调成柔和的音量</h2>
+
+        <p class="intro-text right">
+            灯光会调暗一些，琴声会放轻一些。你可以带一本最近在读的书，在靠窗的位置坐下来，不必急着翻页。
+        </p>
+
+        <p class="intro-text center">
+            现场循环播放钢琴与吉他改编的轻音乐，桌上有温水和小饼干。想读就读，想听就听，中途合上书发一会儿呆，也是被允许的。
+        </p>
+
+        <p id="intro">
+            本次夜读席位有限，报名后请留意短信确认；入场后请把手机调成静音，让这一晚只留下书页翻动的声音。
+        </p>
+    </div>
+
+    <br><div class="divider"></div><br>
+
+    <div class="sec">
+        <h3 class="section-title">本周夜读席位</h3>
+
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>联系方式</th>
+                <th>阅读状态</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td><a href="https://example.com/reader1">林晚</a></td>
+                <td>138****2201</td>
+                <td>专注中</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td><a href="https://example.com/reader2">周予安</a></td>
+                <td>139****3302</td>
+                <td>松弛中</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>陈叙</td>
+                <td>137****4403</td>
+                <td>聆听中</td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td><a href="https://example.com/reader4">苏念</a></td>
+                <td>136****5504</td>
+                <td>专注中</td>
+            </tr>
+        </table>
+    </div>
+
+    <br><div class="divider"></div><br>
+
+    <div class="sec center">
+        <div>
+            <a class="red" href="https://ggb666pro.github.io/work/su-0224-work2.html">查看往期活动照片</a><br>
+            <a class="blue" href="https://hongchenwusdnu.github.io/bookstore/job4.html">在线咨询活动详情</a>
+        </div>
+    </div>
+
+    <br><div class="divider"></div><br>
+
+    <div class="notice sec">
+        轻音乐阅读夜地点：图书馆三层 静读空间，从东门进，右手边第二间。<br>
+        开放时间：每周五、周六 19:00 — 21:30，节假日另行通知。<br>
+        温馨提醒：现场备有坐垫与薄毯，建议提前十分钟入场；若遇雨，入口处放着一把公用伞。
+    </div>
+
+    <br>
+
+</div>
+
+</body>
+</html>
